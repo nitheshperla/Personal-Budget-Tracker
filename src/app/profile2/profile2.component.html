@@ -1,0 +1,50 @@
+
+    <div class="container">
+      <input type="checkbox" id="switch">
+      <div class="outer">
+        <div class="content">
+          <label for="switch">
+            <span class="toggle">
+              <span class="circle"></span>
+            </span>
+          </label>
+            <div class="image-box">
+            <img [src]="photoUrl" alt="">
+          </div>
+          <div class="details">
+            <bR>
+                <div>
+    <h2>User Profile</h2>
+     <p>Name: {{ currentUser?.name }}</p>
+     <p>Age: {{ currentUser?.age }}</p>
+     <p>Phone: {{ currentUser?.phone }}</p>
+     <p>Email: {{ currentUser?.email }}</p>
+    
+    
+     <div *ngIf="editMode">
+     <label>Name: </label>
+     <input type="text" [(ngModel)]="editedUser.name" />
+     <br />
+     <label>Age: </label>
+     <input type="number" [(ngModel)]="editedUser.age" />
+     <br />
+     <label>Phone: </label>
+     <input type="text" [(ngModel)]="editedUser.phone" />
+     <br />
+     <label>Email: </label>
+     <input type="email" [(ngModel)]="editedUser.email" />
+     <br />
+     <button (click)="saveProfile()">Save Profile</button>
+    </div>
+    
+     <div *ngIf="!editMode">
+
+     <button (click)="editProfile()">Edit Profile</button>
+     </div>
+     <button (click)="uploadPhotoButton.click()">Upload Photo</button>
+     <input type="file" #uploadPhotoButton hidden (change)="onPhotoUpload($event)" accept="image/*">
+    
+   
+ </div>
+</div>
+

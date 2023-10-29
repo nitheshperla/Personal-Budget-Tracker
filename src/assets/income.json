@@ -1,0 +1,20 @@
+{
+    "income": [
+      {
+        "id":"pbtoo1" ,
+        "name":"nithesh",
+        "amount":20000,
+        "date":"2023-07-05",
+        "cate":"salary"
+       
+      },
+      {
+        "id":"pbtoo2" ,
+        "name":"indra",
+        "amount":20000,
+        "date":"2023-05-05",
+        "cate":"Gifts"
+      }
+    ]   
+  }
+  

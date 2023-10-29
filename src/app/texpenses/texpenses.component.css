@@ -1,0 +1,47 @@
+.formss {
+  background-color: #94c0be;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 850px;
+}
+
+.button {
+  padding: 5px 10px;
+  font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #138dbd;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {
+  background-color: #828e3e;
+}
+
+.button:active {
+  background-color: #d5e6b5;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #5cbde3;
+  color: white;
+}

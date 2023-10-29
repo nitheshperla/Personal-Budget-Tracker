@@ -1,0 +1,71 @@
+
+<h2 class="abc" >Expenses</h2>
+<div class="abc">
+  <label for="expenseDateRangeStart">From:</label>
+  <input type="date" id="expenseDateRangeStart" [(ngModel)]="expenseStartDate" (change)="filterExpenseEntries()" />&nbsp;
+  <label for="expenseDateRangeEnd">To:</label>
+  <input type="date" id="expenseDateRangeEnd" [(ngModel)]="expenseEndDate" (change)="filterExpenseEntries()" />
+  <br> &nbsp;
+  <!-- <label for="expenseSearch">Search Expenses: </label>
+  <input type="text" id="expenseSearch" [(ngModel)]="expenseSearchText" (keyup)="filterExpenseEntries()" /> -->
+</div>
+<table border="1">
+  <!-- Table headers -->
+  <tr>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>Date</th>
+    <th>Category</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let entry of filteredExpenseEntries">
+      <td>{{ entry.name }}</td>
+      <td>{{ entry.amount }}</td>
+      <td>{{ entry.date }}</td>
+      <td>{{ entry.category }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="abc">Income</h2>
+<div class="abc">
+  <label for="incomeDateRangeStart">From:</label>
+  <input type="date" id="incomeDateRangeStart" [(ngModel)]="incomeStartDate" (change)="filterIncomeEntries()" />&nbsp;
+  <label for="incomeDateRangeEnd">To:</label>
+  <input type="date" id="incomeDateRangeEnd" [(ngModel)]="incomeEndDate" (change)="filterIncomeEntries()" />
+  <br>&nbsp;
+  <!-- <label for="incomeSearch">Search Income: </label>
+  <input type="text" id="incomeSearch" [(ngModel)]="incomeSearchText" (keyup)="filterIncomeEntries()" /> -->
+</div>
+<table border="1">
+  <!-- Table headers -->
+  <tr>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>Date</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let entry of filteredIncomeEntries">
+      <td>{{ entry.name }}</td>
+      <td>{{ entry.amount }}</td>
+      <td>{{ entry.date }}</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+<table>
+  <tr>
+    <th>Total Income</th>
+    <th>Total Expenses</th>
+    <th>Net Balance</th>
+  </tr>
+  <tr style="background-color: aliceblue;">
+   <td style="text-align: center;">{{ totalIncome }}</td>
+   <td style="text-align: center;">{{ totalExpenses }}</td>
+   <td style="text-align: center;">{{ netBalance }}</td>
+  </tr>
+
+</table>
+
+<router-outlet></router-outlet> 

@@ -1,0 +1,70 @@
+
+<div class="formss">
+  <button (click)="showExpenseForm = true">Add Expense</button>
+
+  <div *ngIf="showExpenseForm">
+    <form (submit)="onSubmit(expenseForm)" #expenseForm="ngForm">
+      <table>
+        <tr>
+          <td><label>Name:</label></td>
+          <td><input type="text" [(ngModel)]="expense.name" name="name" pattern="[A-Za-z ]*" required></td>
+        </tr>
+        <tr>
+          <td><label>Amount:</label></td>
+          <td><input type="number" [(ngModel)]="expense.amount" name="amount" required></td>
+        </tr>
+        <tr>
+          <td><label>Date:</label></td>
+          <td><input type="date" [(ngModel)]="expense.date" name="date" required></td>
+        </tr>
+        <tr>
+          <td>    <label>Category:</label>  </td>
+          <td>  <select [(ngModel)]="selectedCategory" name="category" required>
+              <option value="">Select a category</option>
+              <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+            </select></td>
+        
+          
+          
+        </tr>
+        
+          <td colspan="2" style="text-align: center;"><button type="submit">Save</button></td>
+       
+      </table>
+    </form>
+  </div>
+
+ &nbsp; &nbsp; &nbsp;
+
+  <div style="margin-bottom: 10px;">
+    <label>Search by Category:</label>
+    <input type="text" [(ngModel)]="searchCategory">
+    <button (click)="searchByCategory()">Search</button>  &nbsp;<br>
+  
+      <p>Remaining Amount: {{ remainingAmount }}</p>
+    
+  </div>
+
+  <h3>Expense Entries</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let entry of filteredExpenseEntries">
+      <td>{{ entry.name }}</td>
+      <td>{{ entry.amount }}</td>
+      <td>{{ entry.date }}</td>
+      <td>{{ entry.category }}</td>
+      <td>
+        <button class="button" (click)="editExpense(entry)">Edit</button>
+        <button class="button" (click)="deleteExpense(entry)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<router-outlet></router-outlet> 

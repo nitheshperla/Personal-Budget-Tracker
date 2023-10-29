@@ -1,0 +1,83 @@
+<ng-container *ngIf="isLoggedIn; else loginTemplate">
+  <div id="nav">
+
+    <ul class="nav-menu clearfix unstyled">
+     
+      <li><a routerLink="/AppComponent" (click)="logout()" class="three-d">
+       logout
+        <span class="three-d-box"><span class="front"> Log Out</span><span class="back">Logout</span></span>
+      </a></li>
+
+      <li><a routerLink="/bussiness" class="three-d">
+        Income
+        <span class="three-d-box"><span class="front"> Income</span><span class="back">Track Income</span></span>
+      </a>
+      <!--<ul class="clearfix unstyled drop-menu">
+        <li><a routerLink="bussiness" class="three-d">
+          Bussiness
+            <span class="three-d-box"><span class="front">Bussiness</span><span class="back">Bussiness</span></span>
+          </a></li>
+          <li><a routerLink="software" class="three-d">
+            Software
+            <span class="three-d-box"><span class="front">Software</span><span class="back">Software</span></span>
+          </a></li>
+          <li><a routerLink="agriculture" class="three-d">
+            Agricultural
+            <span class="three-d-box"><span class="front">Agricultural</span><span class="back">Agricultural</span></span>
+          </a></li>
+          
+      </ul>-->
+   </li>
+      <li><a routerLink="/texpenses" class="three-d">
+        Expenses
+        <span class="three-d-box"><span class="front"> Expenses</span><span class="back"> Track Expenses</span></span>
+      </a></li>
+      <li><a routerLink="/report" class="three-d">
+        Budget Goals
+        <span class="three-d-box"><span class="front">Budget Goals</span><span class="back">Goals</span></span>
+      </a></li>
+      <li><a  routerLink="/vstatement" class="three-d">
+        View Statement
+        <span class="three-d-box"><span class="front">View Statement</span><span class="back"> Statement</span></span>
+      </a></li>
+      <li><a routerLink="/profile2" class="three-d">
+        About
+        <span class="three-d-box"><span class="front">Profile</span><span class="back">About</span></span>
+      </a></li>
+
+    </ul>
+  </div>
+      
+
+<router-outlet></router-outlet> 
+
+  </ng-container>
+  
+  <ng-template #loginTemplate>
+    <div class="login-wrap">
+      <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+        <label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up">
+        <label for="tab-2" class="tab"></label>
+        <div class="login-form">
+        <div class="sign-in-htm"><br>
+          <div class="group">
+          <label for="user" class="label">Username</label>
+          <input id="user" type="text" class="input" [(ngModel)]="username">
+          </div><br>
+          <div class="group">
+          <label for="pass" class="label">Password</label>
+          <input id="pass" type="password" class="input" data-type="password" [(ngModel)]="password">
+          </div><br>
+          <div class="group">
+          <button  type="submit" class="button" value="Sign In" (click)="login()" >Login</button>
+          </div>
+          <div class="hr"></div>
+        </div>
+        
+        </div>
+      </div>
+      </div>
+    
+  </ng-template>

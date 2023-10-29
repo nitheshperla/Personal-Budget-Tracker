@@ -1,0 +1,33 @@
+<body>
+  <div class="container">
+    <input type="checkbox" id="switch">
+    <div class="outer">
+      <div class="content">
+        <label for="switch">
+          <span class="toggle">
+            <span class="circle"></span>
+          </span>
+        </label>
+          <div class="image-box">
+          <img [src]="photoUrl" alt="">
+        </div>
+        <div class="details">
+          <bR>
+          <div class="name">Perla Narayana Nithesh</div>&nbsp;
+          <div class="job">Software Developer Trainee</div>&nbsp;
+          <div class="buttons">
+           <h4> <span><b>Income Amount :  {{ incomeAmount }}</b></span></h4>
+          
+            <h4> <span><b>Expense Amount : {{ calculateTotalExpenseAmount()}}</b></span></h4>
+      
+            <h4> <span><b>Remaining Amount : {{remainingAmount}}</b></span></h4>
+            
+            <h4>Address :</h4>
+            <button (click)="uploadPhotoButton.click()">Upload Photo</button>
+            <input type="file" #uploadPhotoButton hidden (change)="onPhotoUpload($event)" accept="image/*">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

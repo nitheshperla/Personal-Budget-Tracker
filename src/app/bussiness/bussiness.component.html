@@ -1,0 +1,83 @@
+
+<div class="formss">
+  <header>
+    <h3>- - INCOME FORM - - </h3>
+  </header>
+  <button class="hover-button" (click)="showForm()">Add Income</button>
+
+  <div class="abc" *ngIf="showIncomeForm" >
+    <!-- Income Form -->
+    <form (submit)="submitForm()" #incomeForm="ngForm" style="text-align: center;">
+      <table>
+        <tr>
+          <td><label>Name:</label></td>
+          <td><input type="text" [(ngModel)]="income.name" name="name" pattern="[A-Za-z ]*" required></td>
+          <td>
+            <div *ngIf="isFieldInvalid('name') && (incomeForm.submitted || incomeForm.controls['name'].touched)">
+              <p>Name is required and should contain only letters</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Amount:</label></td>
+          <td><input type="number" [(ngModel)]="income.amount" name="amount" required></td>
+          <td>
+            <div *ngIf="isFieldInvalid('amount') && (incomeForm.submitted || incomeForm.controls['amount'].touched)">
+              <p>Amount is required</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Date:</label></td>
+          <td><input type="date" [(ngModel)]="income.date" name="date" required></td>
+          <td>
+            <div *ngIf="isFieldInvalid('date') && (incomeForm.submitted || incomeForm.controls['date'].touched)">
+              <p>Date is required</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+      <td>    <label>Income Types:</label></td>
+        <td> <select type="cate" [(ngModel)]="income.cate" name="cate" required>
+            <option value="Salary">Salary</option>
+            <option value="Gifts">Gifts</option>
+            <option value="Pocket Money">Pocket Money</option>
+            <option value="Profits">Profits</option>
+            <option value="Others">Others</option>
+          </select></td> &nbsp;
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align: center;"><button class="hover-button" type="submit">Save</button></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <hr>
+
+  <!-- Income Entries Table -->
+  <h3>Income Entries</h3>
+  <table style="margin: 0 auto;" id="customers">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Income Sorce</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of incomeEntries">
+        <td>{{ entry.name }}</td>
+        <td>{{ entry.amount }}</td>
+        <td>{{ entry.date }}</td>
+        <td>{{entry.cate}}</td>
+        <td>
+          <button class="hover-button edit" (click)="editEntry(entry)">Edit</button> &nbsp;
+          <button class="hover-button delete" (click)="deleteEntry(entry)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
